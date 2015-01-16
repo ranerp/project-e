@@ -1,0 +1,25 @@
+﻿Build started 23.10.2014 21:05:00.
+     1>Project "C:\prog\cpp\Project-Eagle\Project-Eagle\Project-Eagle.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"D:\cpp\Project-Eagle\Project-Eagle\include" /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D SFML_DYNAMIC /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt src\Circle.cpp src\CollisionDetector.cpp src\Fps.cpp src\Main.cpp src\Objects.cpp src\Renderer.cpp src\Water.cpp src\WaterColumn.cpp
+         Circle.cpp
+     1>src\Circle.cpp(1): fatal error C1083: Cannot open include file: 'Circle.h': No such file or directory
+         CollisionDetector.cpp
+     1>src\CollisionDetector.cpp(1): fatal error C1083: Cannot open include file: 'CollisionDetector.h': No such file or directory
+         Fps.cpp
+     1>src\Fps.cpp(1): fatal error C1083: Cannot open include file: 'Fps.h': No such file or directory
+         Main.cpp
+     1>src\Main.cpp(1): fatal error C1083: Cannot open include file: 'Renderer.h': No such file or directory
+         Objects.cpp
+     1>src\Objects.cpp(1): fatal error C1083: Cannot open include file: 'Objects.h': No such file or directory
+         Renderer.cpp
+     1>src\Renderer.cpp(1): fatal error C1083: Cannot open include file: 'Renderer.h': No such file or directory
+         Water.cpp
+     1>src\Water.cpp(1): fatal error C1083: Cannot open include file: 'Water.h': No such file or directory
+         WaterColumn.cpp
+     1>src\WaterColumn.cpp(1): fatal error C1083: Cannot open include file: 'WaterColumn.h': No such file or directory
+     1>Done Building Project "C:\prog\cpp\Project-Eagle\Project-Eagle\Project-Eagle.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.89

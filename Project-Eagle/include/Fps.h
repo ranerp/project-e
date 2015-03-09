@@ -13,6 +13,6 @@ private:
 	sf::RenderWindow* window;
 	sf::Clock clock;
 	sf::Font font;
-	sf::String text;
+	sf::Text text;
 	int frameRate;
 };

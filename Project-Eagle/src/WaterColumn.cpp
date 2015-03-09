@@ -18,37 +18,41 @@ WaterColumn::~WaterColumn()
 
 void WaterColumn::render()
 {
-	sf::Shape line = sf::Shape::Line(this->x1, this->height, this->x2, this->y2, this->thickness, sf::Color(this->r, this->g, this->b, 150));
+	sf::RectangleShape line;
+	line.setSize(sf::Vector2f(this->thickness, this->height));
+	line.setPosition(sf::Vector2f(this->x, this->y));
+	line.setFillColor(sf::Color(this->r, this->g, this->b, 125));
 
-	this->window->Draw(line);
+	this->window->draw(line);
 }
 
-void WaterColumn::setParameters(float h, float th, float s)
+void WaterColumn::setParameters(float height, float targetHeight, float speed, float windowHeight)
 {
-	this->height = h;
-	this->targetHeight = th;
-	this->speed = s;
+	this->height = height;
+	this->targetHeight = targetHeight;
+	this->speed = speed;
+	this->windowHeight = windowHeight;
 }
 
-void WaterColumn::setCoordinates(float nx1, float ny1, float nx2, float ny2, float t)
+void WaterColumn::setCoordinates(float x, float y, float thickness, float height)
 {
-	this->x1 = nx1;
-	this->x2 = nx2;
-	this->height = ny1;
-	this->y2 = ny2;
-	this->thickness = t;
+	this->x = x;
+	this->y = y;
+	this->thickness = thickness;
+	this->height = height;
 }
 
 void WaterColumn::update(float dampening, float tension)
 {
-	float x = this->targetHeight - this->height;
+	float x = this->targetHeight - this->y;
 	this->speed += tension * x - this->speed * dampening;
-	this->height += this->speed;
+	this->y += this->speed;
+
 }
 
 float WaterColumn::returnHeight()
 {
-	return this->height;
+	return this->y;
 }
 
 void WaterColumn::setSpeed(float speed)
@@ -58,5 +62,5 @@ void WaterColumn::setSpeed(float speed)
 
 void WaterColumn::setHeight(float height)
 {
-	this->height += height;
+	this->y += height;
 }

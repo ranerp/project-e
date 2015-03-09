@@ -8,7 +8,7 @@ int main( void )
 
 	init = renderer.initialize();
 
-	if(init == TRUE)
+	if(init == true)
 	{
 		renderer.run();
 	}

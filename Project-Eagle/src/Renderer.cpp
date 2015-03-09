@@ -14,13 +14,13 @@ Renderer::~Renderer()
 
 bool Renderer::initialize()
 {
-	sf::WindowSettings settings;
-	settings.DepthBits = 24;
-	settings.StencilBits = 8;
-	settings.AntialiasingLevel = 2;
+	sf::ContextSettings settings;
+	settings.depthBits = 24;
+	settings.stencilBits = 8;
+	settings.antialiasingLevel = 2;
 
-	this->window.Create(sf::VideoMode(800, 600, 32), "PROJECT EAGLE", sf::Style::Close, settings);
-	this->window.SetFramerateLimit(40);
+	this->window.create(sf::VideoMode(800, 600, 32), "PROJECT EAGLE", sf::Style::Close, settings);
+	this->window.setFramerateLimit(40);
 
 	this->setBackgroundColor(135, 206, 235);
 	this->renderState = Initialized;
@@ -32,7 +32,7 @@ bool Renderer::initialize()
 
 	this->cd = new CollisionDetector(this->window, this->objects, this->objects->returnCircleVector());
 
-	return TRUE;
+	return true;
 }
 
 void Renderer::run()
@@ -43,17 +43,17 @@ void Renderer::run()
 	}
 
 	int i = 0;
-	while(this->renderState == Running && this->window.IsOpened())
+	while(this->renderState == Running && this->window.isOpen())
 	{
-		sf::Event Event;
-		while(this->window.GetEvent(Event))
+		sf::Event event;
+		while(this->window.pollEvent(event))
 		{
-			if(Event.Type == sf::Event::Closed)
-				this->window.Close();
-			if(Event.Type == sf::Event::MouseButtonPressed)
+			if(event.type == sf::Event::Closed)
+				this->window.close();
+			if(event.type == sf::Event::MouseButtonPressed)
 			{
-				if(Event.MouseButton.Y < 340)
-					this->objects->addCircle(Event.MouseButton.X, Event.MouseButton.Y, 15, 255, 255, 255);
+				if(event.mouseButton.y < 340)
+					this->objects->addCircle(event.mouseButton.x, event.mouseButton.y, 15, 50, 50, 150);
 			}
 		}
 
@@ -74,12 +74,12 @@ void Renderer::setBackgroundColor(int red, int blue, int green)
 
 void Renderer::clearScreen()
 {
-	this->window.Clear(sf::Color(this->r, this->b, this->g));
+	this->window.clear(sf::Color(this->r, this->b, this->g));
 }
 
 void Renderer::displayScreen()
 {
-	this->window.Display();
+	this->window.display();
 }
 
 void Renderer::render()

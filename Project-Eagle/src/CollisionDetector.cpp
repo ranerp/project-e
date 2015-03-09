@@ -25,7 +25,7 @@ void CollisionDetector::detect()
 			this->objects->water->splash(index, (*this->iter)->getVelocity() * (*this->iter)->getVelocity() / 4);
 		}
 
-		if(y > this->window->GetHeight())
+		if(y > this->window->getSize().y)
 		{
 			cout << "Delete circle at: x - " << (*this->iter)->getX() << " y - " << (*this->iter)->getY() << endl;
 			delete *this->iter;

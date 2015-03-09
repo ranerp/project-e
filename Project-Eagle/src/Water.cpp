@@ -7,6 +7,7 @@ Water::Water(sf::RenderWindow* rw)
 	this->dampening = 0.025f;
 	this->tension = 0.025f;
 	this->spread = 0.3f;
+	this->waterLevel = 340;
 }
 
 Water::~Water()
@@ -17,14 +18,16 @@ void Water::setColumns(int colNmbr)
 {
 	this->colNumbers = colNmbr;
 
-	this->scale = this->window->GetWidth() / (this->colNumbers - 1);
+	this->thickness = this->window->getSize().x / (this->colNumbers - 1);
+	float y = waterLevel;
+	float height = this->window->getSize().y - y;
 
 	for(int i = 0; i < this->colNumbers; i++)
 	{
 		WaterColumn* w = new WaterColumn(this->window);
 
-		w->setParameters(340, 340, 0);
-		w->setCoordinates((i - 1) * this->scale , 340, (i - 1) * this->scale, this->window->GetHeight(), this->scale);
+		w->setParameters(height, y, 0, this->window->getSize().y);
+		w->setCoordinates((i - 1) * this->thickness, y, this->thickness, height);
 
 		this->columns.push_back(w);
 	}

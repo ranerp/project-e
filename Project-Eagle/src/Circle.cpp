@@ -59,7 +59,9 @@ float Circle::getVelocity()
 
 void Circle::render()
 {
-	sf::Shape crc = sf::Shape::Circle(this->x1, this->y1, this->radius, sf::Color(r, g, b ,255));
+	sf::CircleShape crc = sf::CircleShape(this->radius);
+	crc.setPosition(this->x1, this->y1);
+	crc.setFillColor(sf::Color(this->r, this->g, this->b));
 
-	this->window->Draw(crc);
+	this->window->draw(crc);
 }

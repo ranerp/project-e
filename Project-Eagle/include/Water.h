@@ -23,7 +23,8 @@ private:
 	float tension;
 	float dampening;
 	float spread;
-	float scale;
+	float thickness;
+	float waterLevel;
 
 
 	int colNumbers;

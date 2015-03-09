@@ -7,10 +7,10 @@ using namespace std;
 Fps::Fps(sf::RenderWindow &rw)
 	: window(&rw)
 {
-	this->font.LoadFromFile("fonts/arial.ttf");
-	this->text.SetFont(this->font);
-	this->text.SetSize(12);
-	this->text.Move(this->window->GetWidth() - 50, 15);
+	this->font.loadFromFile("fonts/arial.ttf");
+	this->text.setFont(this->font);
+	this->text.setCharacterSize(12);
+	this->text.move(this->window->getSize().x - 50, 15);
 }
 
 Fps::~Fps()
@@ -19,7 +19,7 @@ Fps::~Fps()
 
 void Fps::show()
 {
-	this->frameRate = 1.f / this->clock.GetElapsedTime();
+	this->frameRate = 1.f / this->clock.getElapsedTime().asSeconds();
 
 	ostringstream ostr;
 
@@ -30,9 +30,9 @@ void Fps::show()
 	str.append("Fps: ");
 	str.append(ostr.str());
 
-	this->text.SetText(str);
+	this->text.setString(str);
 
-	this->window->Draw(this->text);
+	this->window->draw(this->text);
 
-	this->clock.Reset();
+	this->clock.restart();
 }
